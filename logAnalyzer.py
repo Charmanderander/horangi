@@ -92,8 +92,6 @@ for ip in ipAddressHits:
 
 print "writing unique addresses, country and hits"
 for ip in ipAddressHits:
-	print ip
-	print ip2Country[ip]
 	line = ip+"|"+str(ipAddressHits[ip])+"|"+ip2Country[ip]+"\n"
 	writeToFile(outputPath+ipCountryHitsName,line)
 

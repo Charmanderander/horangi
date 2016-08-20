@@ -1,16 +1,19 @@
-import subprocess
 import os
+import ConfigParser
 
-pathToActivity = "/home/jinhao/Desktop/Horangi/outputs/activity/"
-pathToSQLiOutput = "/home/jinhao/Desktop/Horangi/attackDetection/SQLi.txt"
-pathToRemoteFileInclusionOutput = "/home/jinhao/Desktop/Horangi/attackDetection/RemoteFileInclusion.txt"
-pathToWebShellsOutput = "/home/jinhao/Desktop/Horangi/attackDetection/WebShells.txt"
+config = ConfigParser.ConfigParser()
+config.read("config.txt")
+
+activityOutputPath = config.get('paths','activityOutputPath')
+pathToSQLiOutput = config.get('parameters','SQLiOutput')
+pathToRemoteFileInclusionOutput = config.get('parameters','RemoteFileInclusionOutput')
+pathToWebShellsOutput = config.get('parameters','WebShellsOutput')
 
 shells = ["r57","loaderz","c0derz","c99","kadot","h4ntu"]
 
-for file in os.listdir(pathToActivity):
+for file in os.listdir(activityOutputPath):
 	print "processing file "+file
-	with open(pathToActivity+file) as f:
+	with open(activityOutputPath+file) as f:
 		f = f.readlines()
 
 	for line in f:
@@ -25,6 +28,4 @@ for file in os.listdir(pathToActivity):
 				with open(pathToWebShellsOutput,"a+") as f:
 					f.write(file +":"+line)
 
-
-print "done"
 
