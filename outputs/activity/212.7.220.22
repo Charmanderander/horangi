@@ -1,0 +1,7 @@
+2015-08-28 18:15:37 172.17.100.8 GET /index.php ccmode=1 443 - 212.7.220.22 Mozilla/5.0 (Windows NT 6.1; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0 http://www.REDACTED.com 302 0 0 31
+2015-08-28 18:15:37 172.17.100.8 GET /cookie_usage.php ccmode=2 443 - 212.7.220.22 Mozilla/5.0 (Windows NT 6.1; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0 https://www.REDACTED.com/index.php?ccmode=1 200 0 0 46
+2015-08-28 18:15:38 172.17.100.8 POST /login.php sof=&action=process 443 - 212.7.220.22 Mozilla/5.0 (Windows NT 6.1; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0 http://www.REDACTED.com 302 0 0 15
+2015-08-28 18:15:39 172.17.100.8 GET /login.php ccmode=1&sof=&action=process 443 - 212.7.220.22 Mozilla/5.0 (Windows NT 6.1; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0 https://www.REDACTED.com/login.php?sof=&action=process 200 0 0 46
+2015-08-28 18:15:43 172.17.100.8 GET /login.php - 443 - 212.7.220.22 Mozilla/5.0 (Windows NT 6.1; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0 http://www.REDACTED.com 200 0 0 46
+2015-08-28 18:15:43 172.17.100.8 POST /login.php sof=&action=process 443 - 212.7.220.22 Mozilla/5.0 (Windows NT 6.1; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0 https://www.REDACTED.com 302 0 0 46
+2015-08-28 18:15:44 172.17.100.8 GET /index.php - 443 - 212.7.220.22 Mozilla/5.0 (Windows NT 6.1; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0 https://www.REDACTED.com/login.php?sof=&action=process 200 0 0 47
