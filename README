@@ -39,9 +39,9 @@ Attack detection:
 Checking is done by simple word matching.
 For each activity file, we scan through to check for
 
-1. SQL injections (Check on word "Union")
-2. Remote file inclusions (Check on word "/etc/passwd")
-3. Webshells (Check on words "r57","loaderz","c0derz","c99","kadot","h4ntu")
+1. SQL injections (Checks on word "Union")
+2. Remote file inclusions (Checks on word "/etc/passwd")
+3. Webshells (Checks on words "r57","loaderz","c0derz","c99","kadot","h4ntu")
 
 The words can be modified to dictate how strict the checks are.
 Adding more checks can lead to a higher computation rate and a higher rate of false positives.
