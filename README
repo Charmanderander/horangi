@@ -32,3 +32,25 @@ It should have the following files:
 1. A text file showing unqiue IP addresses
 2. A pipe delimited text file showing the IP addresses, the number of times it appears, and the country of origin
 3. A folder called "activity", which contains multiple text files of each IP address, and their related network activity
+
+
+Attack detection:
+
+Checking is done by simple word matching.
+For each activity file, we scan through to check for
+
+1. SQL injections (Check on word "Union")
+2. Remote file inclusions (Check on word "/etc/passwd")
+3. Webshells (Check on words "r57","loaderz","c0derz","c99","kadot","h4ntu")
+
+The words can be modified to dictate how strict the checks are.
+Adding more checks can lead to a higher computation rate and a higher rate of false positives.
+
+
+The output of the scripts give 3 files:
+
+1. SQLi.txt
+2. RemoteFileInclusion.txt
+3. WebShells.txt
+
+In these files, each entry contains the IP address and activity log that is suspected to be an attack. 

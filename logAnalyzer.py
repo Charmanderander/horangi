@@ -20,35 +20,41 @@ def getIpInfo(inputFile):
 	with open(infile) as f:
     		f = f.readlines()
 	
+	print "reading in file"
 	for line in f:
+		try:
 
-		# using regex to extract out current ip address in the line
-		curIpAdd = re.findall(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', line)
+			# using regex to extract out current ip address in the line
+			curIpAdd = re.findall(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}', line)
 	
-		# regex returns 2 ips, interested in the second
-		targetIp = curIpAdd[1]
+			# regex returns 2 ips, interested in the second
+			targetIp = curIpAdd[1]
 
-		# 1) only adding in unique ip addreses, set initial hit to 1
-		# 2) if ip is already in the list, increment the hits by 1
-		# 3) look up the country for the ip
-		# 4) initializing a dynamic dictionary for activity
-		if (targetIp not in ipAddressHits):
-			ipAddressHits[targetIp] = 1
+			# 1) only adding in unique ip addreses, set initial hit to 1
+			# 2) if ip is already in the list, increment the hits by 1
+			# 3) look up the country for the ip
+			# 4) initializing a dynamic dictionary for activity
+			if (targetIp not in ipAddressHits):
+				ipAddressHits[targetIp] = 1
 			
-			match = geolite2.lookup(targetIp)
-			if match is not None:
-				ip2Country[targetIp] = match.country
+				match = geolite2.lookup(targetIp)
+				if match is not None and match.country is not None:
+					ip2Country[targetIp] = match.country
+				else:
+					ip2Country[targetIp] = "not found"
 			
-			ip2Activity.setdefault(targetIp,[])
+				ip2Activity.setdefault(targetIp,[])
 							
-		else:
-			ipAddressHits[targetIp] += 1
+			else:
+				ipAddressHits[targetIp] += 1
+			
+			#adding each line of activity to the respective IP
+			ip2Activity[targetIp].append(line)
 		
-		ip2Activity[targetIp].append(line)
+		except Exception,e:
+			continue
 
-		count += 1
-		if count == 10000:
-			break
+
 
 	return ipAddressHits, ip2Country, ip2Activity
 
@@ -86,6 +92,8 @@ for ip in ipAddressHits:
 
 print "writing unique addresses, country and hits"
 for ip in ipAddressHits:
+	print ip
+	print ip2Country[ip]
 	line = ip+"|"+str(ipAddressHits[ip])+"|"+ip2Country[ip]+"\n"
 	writeToFile(outputPath+ipCountryHitsName,line)
 
