@@ -12,7 +12,23 @@ Script that reads apache logs line by line and returns the following information
 
 6. detect web shells with found entries to flat text file
 
+
 Packages Used:
 
 Python-geoip: returns the geolocation of target IP address
 http://pythonhosted.org/python-geoip/
+
+How to use:
+
+1. Configure the path outputs in "config.txt"
+2. Put the log file in the input folder
+3. Run the python script "logAnalyzer.py"
+
+Outputs:
+
+If the program runs correctly, check the output folder.
+It should have the following files:
+
+1. A text file showing unqiue IP addresses
+2. A pipe delimited text file showing the IP addresses, the number of times it appears, and the country of origin
+3. A folder called "activity", which contains multiple text files of each IP address, and their related network activity

@@ -3,3 +3,5 @@ inputPath = /home/jinhao/Desktop/Horangi/inputFiles/
 outputPath = /home/jinhao/Desktop/Horangi/outputs/
 activityOutputPath = /home/jinhao/Desktop/Horangi/outputs/activity/
 
+[parameters]
+filename = CTF1.log

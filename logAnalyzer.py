@@ -64,6 +64,7 @@ def writeToFile(filename,content):
 inputPath = config.get('paths','inputPath')
 outputPath = config.get('paths','outputPath')
 activityOutputPath = config.get('paths','activityOutputPath')
+filename = config.get('parameters','filename')
 
 dirs = [inputPath,outputPath,activityOutputPath]
 
@@ -74,7 +75,7 @@ for directory in dirs:
 unqiueIpName = "unqiueIp.txt"
 ipCountryHitsName = "ipCountryHits.txt"
 
-inputFile = inputPath + "CTF1.log"
+inputFile = inputPath + filename
 
 [ipAddressHits,ip2Country,ip2Activity] = getIpInfo(inputFile)
 
