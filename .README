@@ -1,0 +1,18 @@
+Script that reads apache logs line by line and returns the following information to file(s): 
+
+1. list of unique IP addresses as a flat text file
+
+2. list of unique IP addresses with country and number of hits as a flat text file 
+
+3. list of all activity per IP address to individual flat text files per IP
+
+4. detect SQLi with found entries to flat text file
+
+5. detect remote file inclusion with found entries to flat text file
+
+6. detect web shells with found entries to flat text file
+
+Packages Used:
+
+Python-geoip: returns the geolocation of target IP address
+http://pythonhosted.org/python-geoip/
