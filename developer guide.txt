@@ -1,5 +1,20 @@
 DEVELOPER GUIDE
+===============================================================================
+In "logAnalyzer.py"
 
+In line 40:
+
+		 targetIp = curIpAdd[1]
+
+If the format of the log file specifies the target IP address in a different location,
+it can then be extracted out by changing the group number.
+
+I.e. if the target address appears as the first IP address in the log file, the code
+should be changed to:
+	      
+	      targetIp = curIpAdd[0]
+
+===============================================================================
 In "attackDetection.py"
 
 Checking is done by simple word matching.

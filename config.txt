@@ -6,5 +6,5 @@ activityOutputPath = [YOUR PATH]/outputs/activity/
 [parameters]
 filename = CTF1.log
 SQLiOutput = SQLi.txt
-RemoteFileInclusionOutput = RemoteFileInclusion.txt
+RFIOutput = RemoteFileInclusion.txt
 WebShellsOutput = WebShells.txt
